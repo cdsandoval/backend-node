@@ -8,6 +8,7 @@ const UserSchema = new Schema({
   password: { type: String, required: true },
 });
 
+//Each time this model is call run this before send it back
 UserSchema.methods.toJSON = function () {
   let user = this.toObject();
   delete user.password;
@@ -18,7 +19,8 @@ UserSchema.methods.comparePasswords = function (password) {
   return compareSync(password, this.password);
 };
 
-UserSchema.pre("save", async function () {
+// Use pre before "save" methods
+UserSchema.pre("save", async function (next) {
   const user = this;
 
   if (!user.isModified("password")) {
