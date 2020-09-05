@@ -52,4 +52,4 @@ class CommentService extends BaseService {
   }
 }
 
-module.export = CommentService;
+module.exports = CommentService;

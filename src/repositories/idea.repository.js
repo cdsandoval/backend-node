@@ -1,5 +1,5 @@
 const BaseReposity = require("./base.repository");
-let _idea = null;
+let _user = null;
 
 class IdeaRepository extends BaseReposity {
   constructor({ Idea }) {
@@ -8,7 +8,7 @@ class IdeaRepository extends BaseReposity {
   }
 
   async getUserIdeas(author) {
-    return await _idea.find({ author });
+    return await _user.find({ author });
   }
 }
 
