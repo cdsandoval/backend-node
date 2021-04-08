@@ -12,7 +12,8 @@ class IdeaController {
   }
 
   async getAll(req, res) {
-    const users = await _ideaService.getAll();
+    const { pageSize, pageNum } = req.query;
+    const users = await _ideaService.getAll(pageSize, pageNum);
     return res.send(users);
   }
 
